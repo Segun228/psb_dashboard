@@ -3,10 +3,8 @@ FROM grafana/grafana:latest
 RUN mkdir -p /etc/grafana/provisioning/dashboards
 RUN mkdir -p /etc/grafana/provisioning/datasources
 
-# Копируем конфиг датасорсов
-COPY datasource.yaml /etc/grafana/provisioning/datasources/
 
-# Копируем дашборды
+
 COPY dashboard.json /etc/grafana/provisioning/dashboards/
 COPY dashboard.yaml /etc/grafana/provisioning/dashboards/
 

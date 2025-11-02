@@ -3,6 +3,13 @@ apiVersion: 1
 datasources:
   - name: NeonDB
     type: postgres
-    url: ${DATABASE_URL}
+    url: ep-purple-morning-adujupyi-pooler.c-2.us-east-1.aws.neon.tech:5432
+    database: neondb
+    user: neondb_owner
     access: proxy
     isDefault: true
+    jsonData:
+      sslmode: "require"
+      postgresVersion: 1300
+    secureJsonData:
+      password: "npg_rdPaJb21vCNx"
