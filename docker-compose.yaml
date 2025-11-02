@@ -1,0 +1,103 @@
+
+services:
+  postgres:
+    image: library/postgres:13
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: analytics_db
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - '5432:5432'
+    restart: always
+    networks:
+      - analytics-net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - '5050:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@analytics.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin123
+    depends_on:
+      - postgres
+    networks:
+      - analytics-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana_psb
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana123
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    restart: unless-stopped
+    networks:
+      - analytics-net
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    ports:
+      - "3001:3000"
+    environment:
+      - MB_JETTY_HOST=0.0.0.0
+    volumes:
+      - metabase_data:/metabase-data
+    restart: unless-stopped
+    networks:
+      - analytics-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    ports:
+      - "3002:8088"
+    environment:
+      - SUPERSET_SECRET_KEY=your-secret-key-here-make-it-long
+      - SUPERSET_LOAD_EXAMPLES=no
+    volumes:
+      - superset_data:/app/superset_home
+    restart: unless-stopped
+    networks:
+      - analytics-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    command: >
+      sh -c "
+        superset db upgrade &&
+        superset fab create-admin --username admin --firstname admin --lastname admin --email admin --password admin &&
+        superset init &&
+        superset run -p 8088 -h 0.0.0.0 --with-threads --reload --debugger
+      "
+
+volumes:
+  grafana_data:
+  postgres-data:
+  pgadmin-data:
+  metabase_data:
+  superset_data:
+
+networks:
+  analytics-net:
+    driver: bridge
