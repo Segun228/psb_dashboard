@@ -37,7 +37,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -123,7 +123,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -202,7 +202,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -281,7 +281,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -360,7 +360,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -452,7 +452,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -580,7 +580,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -664,7 +664,7 @@
           "dataset": "neondb",
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bf2w07uplo6ioe"
+            "uid": "neon_db"
           },
           "editorMode": "code",
           "format": "time_series",
@@ -709,7 +709,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -781,7 +781,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -861,7 +861,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -933,7 +933,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "fieldConfig": {
         "defaults": {
@@ -1027,7 +1027,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "description": "Показывает график изменения метрики текучести",
       "fieldConfig": {
@@ -1152,7 +1152,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "description": "Показывает график изменения метрики ФОТ",
       "fieldConfig": {
@@ -1266,7 +1266,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "description": "Показывает график изменения метрики налога",
       "fieldConfig": {
@@ -1391,7 +1391,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "bf2w07uplo6ioe"
+        "uid": "neon_db"
       },
       "description": "Показывает график изменения метрики текучести",
       "fieldConfig": {
