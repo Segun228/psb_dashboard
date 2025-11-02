@@ -2,6 +2,7 @@ apiVersion: 1
 
 datasources:
   - name: NeonDB
+    uid: "neon_db"
     type: postgres
     url: ep-purple-morning-adujupyi-pooler.c-2.us-east-1.aws.neon.tech:5432
     database: neondb
